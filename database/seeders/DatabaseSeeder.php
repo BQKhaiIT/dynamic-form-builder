@@ -15,18 +15,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $adminUserService = app(AdminUserService::class);
+        // $adminUserService = app(AdminUserService::class);
 
-        $adminUserService->createOrUpdateAdmin(
-            name: 'System Admin',
-            email: 'admin@example.com',
-            password: 'password'
-        );
+        // $adminUserService->createOrUpdateAdmin(
+        //     name: 'System Admin',
+        //     email: 'admin@example.com',
+        //     password: 'password'
+        // );
 
-        $adminUserService->createOrUpdateEmployee(
-            name: 'Demo Employee',
-            email: 'employee@example.com',
-            password: 'password'
-        );
+        // $adminUserService->createOrUpdateEmployee(
+        //     name: 'Demo Employee',
+        //     email: 'employee@example.com',
+        //     password: 'password'
+        // );
+
+        $this->call([
+            UserSeeder::class,
+            FormSeeder::class,
+            SubmissionSeeder::class,
+        ]);
     }
 }
