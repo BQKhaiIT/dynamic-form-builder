@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('status', [
                 'draft',
                 'active',
-                'inactive'
+                'inactive',
             ])->default('draft');
 
             $table->foreignId('created_by')

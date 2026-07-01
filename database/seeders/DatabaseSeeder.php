@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Services\AdminUserService;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +15,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $adminUserService = app(AdminUserService::class);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $adminUserService->createOrUpdateAdmin(
+            name: 'System Admin',
+            email: 'admin@example.com',
+            password: 'password'
+        );
+
+        $adminUserService->createOrUpdateEmployee(
+            name: 'Demo Employee',
+            email: 'employee@example.com',
+            password: 'password'
+        );
     }
 }

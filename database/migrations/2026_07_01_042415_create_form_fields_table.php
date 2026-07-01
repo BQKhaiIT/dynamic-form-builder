@@ -26,7 +26,7 @@ return new class extends Migration
                 'number',
                 'date',
                 'color',
-                'select'
+                'select',
             ]);
 
             $table->string('placeholder')->nullable();
